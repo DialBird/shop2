@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610015904) do
+ActiveRecord::Schema.define(version: 20170610072601) do
+
+  create_table "carts", force: :cascade, comment: "カート" do |t|
+    t.integer "user_id"
+    t.string "postal_code", default: "", comment: "郵便番号"
+    t.string "address", default: "", comment: "住所"
+    t.string "guest_token", comment: "ゲストトークン"
+    t.datetime "completed_at", comment: "取引完了日"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
   create_table "products", force: :cascade, comment: "商品" do |t|
     t.string "name", default: "", null: false, comment: "商品名"
