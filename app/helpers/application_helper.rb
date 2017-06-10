@@ -1,6 +1,8 @@
 module ApplicationHelper
   def display_flash
     flash.each do |type, msg|
+      type = 'danger' if type == 'alert'
+      type = 'success' if type == 'notice'
       concat content_tag(:div, msg, class: "alert alert-#{type}")
     end
     nil
