@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'kaminari'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
