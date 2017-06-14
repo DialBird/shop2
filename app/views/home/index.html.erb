@@ -1,1 +1,27 @@
 <% content_for(:title) do%>トップページ<% end %>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <%= image_tag 'cart.png', size: '150x150' %>
+      </div>
+      <div class="col-sm-8">
+        <h1>Shop Gokko(お店もどき)</h1>
+        <p class="lead">お金を使わない簡単なECサイト</p>
+        <hr>
+        <div class="text-center">
+          <%= link_to '商品一覧ページへ', products_path, class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= display_flash %>
+  <h2>使いかた</h2>
+  <ol>
+    <li>「買い物をする」タブから商品一覧画面へ</li>
+    <li>商品を選んでカートに入れます</li>
+    <li>気が済んだらレジへ行くを押して決済処理をします</li>
+  </ol>
+</div>
