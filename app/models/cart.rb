@@ -18,4 +18,12 @@ class Cart < ApplicationRecord
 
   validates :guest_token, presence: true
   validates :postal_code, format: { with: /\A\d{7}\z/, allow_blank: true }
+
+  scope :incomplete, -> {
+    where(completed_at: nil)
+  }
+
+  def any_items?
+    0 < cart_items.size
+  end
 end

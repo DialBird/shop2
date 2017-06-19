@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :products
 
   get '/cart' => 'cart#edit'
+  get '/cart_link' => 'cart#cart_link'
 end
