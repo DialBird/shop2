@@ -17,4 +17,5 @@ class Cart < ApplicationRecord
   has_many :cart_items
 
   validates :guest_token, presence: true
+  validates :postal_code, format: { with: /\A\d{7}\z/, allow_blank: true }
 end
