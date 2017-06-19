@@ -43,6 +43,7 @@ group :development do
   gem 'rubocop'
   gem 'annotate'
   gem 'rename'
+  gem 'migration_comments'
 end
 
 group :test do
