@@ -3,23 +3,40 @@ ja:
     format: '%{message}'
     title: 入力内容にエラーがあります
     messages:
+      accepted: '%{attribute}を受諾してください。'
       blank: '%{attribute}を入力してください。'
+      confirmation: '%{attribute}と確認の入力が一致しません。'
+      empty: '%{attribute}を入力してください。'
+      exclusion: '%{attribute}は使用されています。'
+      greater_than: '%{attribute}は%{count}より大きい値にしてください。'
+      greater_than_or_equal_to: '%{attribute}は%{count}以上の値にしてください。'
+      inclusion: '%{attribute}は一覧にありません。'
+      invalid: ! '%{attribute}の形式が正しくありません。'
+      less_than: '%{attribute}は%{count}より小さい値にしてください。'
+      less_than_or_equal_to: '%{attribute}は%{count}以下の値にしてください。'
+      not_a_number: '%{attribute}は数値で入力してください。'
+      not_an_integer: '%{attribute}は整数で入力してください。'
       record_invalid: "バリデーションに失敗しました: %{errors}"
       restrict_dependent_destroy:
         has_one: "%{record}が存在しているので削除できません"
         has_many: "%{record}が存在しているので削除できません"
+
   helpers:
     create: "%{name}を作成しました"
     update: "%{name}を更新しました"
     destroy: "%{name}を削除しました"
+
   navs:
     index: "%{name}一覧"
     new: "新規%{name}作成"
     edit: "%{name}編集"
+
   activerecord:
     <<: *errors
+
     models:
-      user: ユーザー
+      user: 'ユーザー'
+
     attributes:
-      user:
-        name: 名前
+      user: &user
+        name: 'ユーザー名'
