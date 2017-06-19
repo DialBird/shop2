@@ -14,4 +14,6 @@
 
 class Cart < ApplicationRecord
   belongs_to :user
+
+  validates :guest_token, presence: true
 end
