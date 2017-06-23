@@ -1,2 +1,35 @@
-<h1>Cart#edit</h1>
-<p>Find me in app/views/cart/edit.html.erb</p>
+<% content_for(:title) do%>カート<% end %>
+
+<% if @cart.any_items? %>
+  <%= form_for @cart, url: update_cart_path, method: :put, html: { id: 'update_cart', class: 'form-horizontal' } do |cart_f| %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>価格</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'cart/cart_item', collection: @cart.cart_items, locals: { cart_f: cart_f } %>
+      </tbody>
+    </table>
+
+    <%= render 'money_panel', cart: @cart %>
+
+    <hr>
+
+    <div class="col-sm-12">
+      <%= link_to '買い物を続ける', products_path, class: 'btn btn-default' %>
+      <%= button_tag '個数変更', class: 'btn btn-success' %>
+      <%= button_tag 'レジへ進む', name: 'checkout', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Now the cart is empty</p>
+  <div class="col-sm-12">
+    <%= link_to '買い物ページへ', products_path, class: 'btn btn-default' %>
+  </div>
+<% end %>

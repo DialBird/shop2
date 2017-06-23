@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well money text-right pull-right">
+      <dl class="dl-horizontal">
+        <dt>合計 :</dt>
+        <dd><strong><%= cart.amount %></strong> 円</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>消費税(8%) :</dt>
+        <dd><strong><%= cart.tax %></strong> 円</dd>
+      </dl>
+      <dl class="dl-horizontal lead">
+        <dt>請求額 :</dt>
+        <dd><strong><%= cart.tax_amount %></strong> 円</dd>
+      </dl>
+    </div>
+  </div>
+</div>

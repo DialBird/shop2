@@ -11,9 +11,15 @@
 #
 
 class CartItem < ApplicationRecord
+  PERMITTED_ATTRIBUTES = %i(product_id quantity).freeze
+
   belongs_to :product
   belongs_to :cart
 
   validates :quantity, presence: true,
                        numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def sub_total
+    product.price * quantity
+  end
 end

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get '/cart' => 'cart#edit'
   get '/cart_link' => 'cart#cart_link'
+  put '/update_cart' => 'cart#update'
 end

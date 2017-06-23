@@ -1,0 +1,10 @@
+<%= cart_f.fields_for :cart_items, cart_item do |item_f| %>
+  <tr class="cart_item">
+    <td><%= cart_item.product.name %></td>
+    <td><%= cart_item.product.price %></td>
+    <td><%= item_f.number_field :quantity, min: 0, class: 'form-control cart_item_quantity' %></td>
+    <td><%= cart_item.sub_total %></td>
+    <td><%= button_tag '削除', class: 'btn btn-danger delete' %></td>
+    <%= item_f.hidden_field :id, value: cart_item.id %>
+  </tr>
+<% end %>
