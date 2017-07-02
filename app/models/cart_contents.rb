@@ -14,4 +14,9 @@ class CartContents
     cart_item.save!
     cart_item
   end
+  
+  def update(params)
+    cart.update(params)
+    cart.cart_items = cart.cart_items.select { |item| item.quantity.positive? }
+  end
 end

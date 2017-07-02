@@ -25,4 +25,20 @@ class CartController < ApplicationController
       redirect_to cart_path
     end
   end
+
+  def update
+    @cart = current_cart
+    if @cart.blank?
+      redirect_to root_path
+      return
+    end
+    @cart.contents.update(cart_params)
+    redirect_to cart_path
+  end
+
+  private
+
+  def cart_params
+    params.fetch(:cart, {}).permit(cart_items_attributes: CartItem::PERMITTED_ATTRIBUTES)
+  end
 end

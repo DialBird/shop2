@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('form#update_cart button.delete').on 'click', (e) ->
+    e.preventDefault
+    $(this).closest('.cart_item').find('input.cart_item_quantity').val 0
+    $(this).closest('form').submit()
+
+  $('form#update_cart').on 'submit', ->
+    $(this).find('button.delete').prop('disabled', true)
