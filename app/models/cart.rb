@@ -27,4 +27,8 @@ class Cart < ApplicationRecord
   def any_items?
     0 < cart_items.size
   end
+
+  def contents
+    @contents ||= CartContents.new(self)
+  end
 end
