@@ -16,13 +16,15 @@
       <td class="col-sm-2"><%= product.price %></td>
       <td class="col-sm-4"><%= image_tag product.image.url, size: '100x100' %></td>
       <td class="col-sm-6">
-        <div class="input-group pull-right add-cart-input">
-          <%= number_field_tag 'quantity', 1, class: 'form-control', min: 1 %>
-          <div class="input-group-btn">
-            <%= hidden_field_tag 'product_id', product.id %>
-            <%= submit_tag 'Add to Cart', class: 'btn btn-success' %>
+        <%= form_for '', url: populate_cart_path, method: :put, html: { class: 'form-horizontal' } do |f| %>
+          <div class="input-group pull-right add-cart-input">
+            <%= f.number_field :quantity, value: 1, class: 'form-control', min: 1 %>
+            <div class="input-group-btn">
+              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.submit 'Add to Cart', class: 'btn btn-success' %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </td>
     </tr>
   <% end %>
