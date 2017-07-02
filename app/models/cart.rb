@@ -13,8 +13,9 @@
 #
 
 class Cart < ApplicationRecord
-  belongs_to :user
-  has_many :cart_items
+  belongs_to :user, optional: true
+  has_many :cart_items, dependent: :destroy
+  accepts_nested_attributes_for :cart_items, allow_destroy: true, reject_if: :all_blank
 
   validates :guest_token, presence: true
   validates :postal_code, format: { with: /\A\d{7}\z/, allow_blank: true }
