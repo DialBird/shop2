@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_cart_params
-    { guest_token: cookies.signed[:guest_token],
-      user_id: current_user.try!(:id) }
+    # TODO: user_idの追加
+    { guest_token: cookies.signed[:guest_token] }
   end
 
   def setup_guest_token_if_necessary
