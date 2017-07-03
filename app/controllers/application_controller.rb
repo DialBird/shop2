@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Auth
-
   protect_from_forgery with: :exception
 
   helper_method :current_cart
@@ -22,11 +20,17 @@ class ApplicationController < ActionController::Base
   private
 
   def find_cart_by_token_or_user
+    setup_guest_token_if_necessary
     Cart.find_by(current_cart_params)
   end
 
   def current_cart_params
     { guest_token: cookies.signed[:guest_token],
       user_id: current_user.try!(:id) }
+  end
+
+  def setup_guest_token_if_necessary
+    return if cookies.signed[:guest_token].present?
+    cookies.permanent.signed[:guest_token] = SecureRandom.urlsafe_base64
   end
 end
