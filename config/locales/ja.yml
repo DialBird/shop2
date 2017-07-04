@@ -36,7 +36,12 @@ ja:
 
     models:
       user: 'ユーザー'
+      product: '商品'
+      cart_item: 'カート内商品'
 
     attributes:
       user: &user
         name: 'ユーザー名'
+      cart_item: &cart_item
+        product_id: '商品ID'
+        quantity: '個数'
