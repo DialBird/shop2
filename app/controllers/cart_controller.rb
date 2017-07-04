@@ -19,8 +19,8 @@ class CartController < ApplicationController
     @cart.errors.add(:base, e.record.errors.full_messages.join(','))
   ensure
     if @cart.errors.any?
-      flash[:error] = @cart.errors.full_messages.join(',')
-      redirect_back(fallback_location: root_path)
+      flash[:danger] = @cart.errors.full_messages.join(',')
+      redirect_to products_path
     else
       redirect_to cart_path
     end
@@ -28,10 +28,6 @@ class CartController < ApplicationController
 
   def update
     @cart = current_cart
-    if @cart.blank?
-      redirect_to root_path
-      return
-    end
     @cart.contents.update(cart_params)
     redirect_to cart_path
   end
