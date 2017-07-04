@@ -14,8 +14,7 @@
 FactoryGirl.define do
   factory :product do
     name "MyString"
-    price 1
-    cost 1
-    image "MyString"
+    price 100
+    cost 10
   end
 end
