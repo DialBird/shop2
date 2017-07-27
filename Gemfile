@@ -55,6 +55,8 @@ end
 group :test do
   gem 'faker'
   gem 'database_cleaner'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
