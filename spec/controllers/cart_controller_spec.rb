@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CartController, type: :controller do
+  login_user
+
   describe "GET #edit" do
     it "200を返すこと" do
       get :edit
